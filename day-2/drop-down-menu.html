@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav {
+            display: flex;
+            /* position: fixed; */
+            width: 100%;
+            min-width: 370px;
+            max-width: 970px;
+            margin: 0 auto;
+        }
+
+        .nav>li {
+            flex: 1;
+            position: relative;
+            width: 80px;
+            height: 41px;
+            text-align: center;
+        }
+
+        .nav li a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 41px;
+            color: #333;
+        }
+
+        .nav>li>a:hover {
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .nav ul {
+            display: none;
+            position: absolute;
+            top: 41px;
+            left: 0;
+            width: 100%;
+        }
+        
+        .nav ul li {
+            border: 1px solid #000;
+        }
+
+        .nav ul li a:hover {
+            overflow: hidden;
+            background-color: #FFF5DA;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="javascript:;">微博</a>
+            <ul>
+                <li>
+                    <a href="javascript:;">私信</a>
+                </li>
+                <li>
+                    <a href="javascript:;">评论</a>
+                </li>
+                <li>
+                    <a href="javascript:;">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">微博</a>
+            <ul>
+                <li>
+                    <a href="javascript:;">私信</a>
+                </li>
+                <li>
+                    <a href="javascript:;">评论</a>
+                </li>
+                <li>
+                    <a href="javascript:;">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">微博</a>
+            <ul>
+                <li>
+                    <a href="javascript:;">私信</a>
+                </li>
+                <li>
+                    <a href="javascript:;">评论</a>
+                </li>
+                <li>
+                    <a href="javascript:;">@我</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">微博</a>
+            <ul>
+                <li>
+                    <a href="javascript:;">私信</a>
+                </li>
+                <li>
+                    <a href="javascript:;">评论</a>
+                </li>
+                <li>
+                    <a href="javascript:;">@我</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+<script>
+    // 1.获取元素
+    let nav = document.querySelector('.nav');
+    let lis = nav.children; //获取4个li
+    // 2循环注册事件
+    for (let i = 0; i < lis.length; i++){
+        lis[i].onmouseover = () => {
+            lis[i].children[1].style.display = 'block';
+        }
+        lis[i].onmouseout = () => {
+            lis[i].children[1].style.display = 'none';
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环精灵图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style-type: none;
+        }
+
+        .box ul{
+            display: flex;
+            flex-flow: row wrap;
+            /* flex-wrap: wrap; */
+            width: 250px;
+            height: 200px;
+            margin: 100px auto;
+        }
+
+        .box li{
+            width: 24px;
+            height: 24px;
+            background-color: pink;
+            margin: 15px;
+            background: url(images/sprite.png) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        
+    </div>
+    <script>
+        // 1.获取元素 所有span
+        let lis = document.querySelectorAll('li');
+        for (let i = 0; i < lis.length; i++){
+            // 让索引号 乘以 44 就是每个span 的 背景y坐标 index就是我们的y坐标
+            let index = i * 44;
+            lis[i].style.backgroundPosition = '0 -' + index + 'px';
+        }
+    </script>
+</body>
+</html>

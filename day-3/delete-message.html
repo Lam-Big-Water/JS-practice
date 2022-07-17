@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除留言</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            display: flex;
+            /* height: 30px; */
+            flex-direction: column;
+            width: 300px;
+            background-color: rgb(245, 209, 243);
+            color: red;
+            font-size: 14px;
+            margin: 15px 0;
+            /* line-height: 30px; */
+        }
+        
+        li a {
+            align-self: flex-end;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+
+    <script>
+        // 1.获取元素
+        let btn = document.querySelector('button');
+        let text = document.querySelector('textarea');
+        let ul = document.querySelector('ul');
+        // 2.注册事件
+        btn.onclick = () => {
+            if(text.value == '') {
+                alert('null');
+                return false;
+            } else {
+                // 1)创建元素
+                let li = document.createElement('li');
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                // 2)添加元素
+                ul.insertBefore(li, ul.children[0]);
+                // 3)删除元素 删除的是当前链接的li 它的父亲
+                let as = document.querySelectorAll('a');
+                for (let i = 0; i < as.length; i++) {
+                    as[i].onclick = () => {
+                        ul.removeChild(as[i].parentNode);
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+</html>

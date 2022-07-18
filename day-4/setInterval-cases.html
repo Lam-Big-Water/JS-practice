@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 200px;
+        }
+        
+        span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            font-size: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="day">0</span>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        // 获取元素
+        let day = document.querySelector('.day'); //天
+        let hour = document.querySelector('.hour'); // 小时的黑色盒子
+        let minute = document.querySelector('.minute'); // 分钟的黑色盒子
+        let second = document.querySelector('.second'); // 秒数的黑色盒子
+        let inputTime = +new Date('2022-8-1 18:00:00'); // 返回的是用户输入时间总的毫秒数
+        countDown();//我们先调用一次这个函数，防止第一次刷新时出现空白
+        // 2.开启定时器
+        setInterval(countDown, 1000);
+
+        function countDown() {
+            let nowTime = +new Date(); //返回的是当前时间的毫秒数
+            let times = (inputTime - nowTime) / 1000; //times是剩余时间总的秒数
+            let d = parseInt(times / (3600 * 24));
+            console.log(d);
+            d = d < 10 ? '0' + d : d;
+            day.innerHTML = d;
+            let h = parseInt(times / 60 / 60 % 24);//时
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h; //把剩余的小时给 小时黑色盒子
+            let m = parseInt(times / 60 % 60);//分
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            let s = parseInt(times % 60) // 当前的秒数
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s;
+        }
+
+
+// var time_start = new Date('2022','8','15');//开始时间，注意！！！如果从8月15开始，月份就是7月15
+
+// var clock_start = time_start.getTime();
+
+// console.log(clock_start);
+
+// //计算时间差
+
+// function get_time_spent() {
+
+// var time_now = new Date();
+
+// return ((time_now.getTime() - clock_start));
+
+// }
+
+// get_time_spent();
+
+// console.log(get_time_spent());
+
+// function get_times() {
+
+// var i_total_secs = Math.round(get_time_spent());
+
+// console.log(i_total_secs);
+
+// //计算出相差天数
+
+// var days = Math.floor(i_total_secs / (24 * 3600 * 1000))
+
+// console.log(days);
+
+// //计算出小时数
+
+// var leave1 = i_total_secs % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+
+// var hours = Math.floor(leave1 / (3600 * 1000))
+
+// //计算相差分钟数
+
+// var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+
+// var minutes = Math.floor(leave2 / (60 * 1000))
+
+// //计算相差秒数
+
+// var leave3 = leave2 % (60 * 1000) //计算分钟数后剩余的毫秒数
+
+// var seconds = Math.round(leave3 / 1000)
+
+// if (seconds.toString().length == 1) {
+
+// seconds = '0' + seconds;
+
+// }
+
+// console.log(days + '天' + hours + '个小时' + minutes + '分钟' + seconds + '秒');
+
+
+// }
+// get_times();
+</script>
+</body>
+
+</html
